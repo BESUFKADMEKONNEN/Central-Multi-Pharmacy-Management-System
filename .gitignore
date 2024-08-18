@@ -27,3 +27,6 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+JavaFx
+sqlitejdbc-3.7.2
