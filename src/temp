@@ -1,0 +1,60 @@
+
+<GridPane fx:id="modifyPart2" GridPane.columnIndex="1" gridLinesVisible="false" hgap="10" vgap="10">
+    <columnConstraints>
+        <ColumnConstraints percentWidth="50"/>
+        <ColumnConstraints percentWidth="50"/>
+    </columnConstraints>
+
+    <rowConstraints>
+        <RowConstraints percentHeight="10"/>
+        <RowConstraints percentHeight="25"/>
+        <RowConstraints percentHeight="25"/>
+        <RowConstraints percentHeight="25"/>
+        <RowConstraints percentHeight="25"/>
+    </rowConstraints>
+
+    <AnchorPane  GridPane.rowIndex="1" GridPane.columnIndex="0"  GridPane.rowSpan="2" prefHeight="150" prefWidth="500" maxWidth="500" maxHeight="150" GridPane.halignment="CENTER" style="-fx-background-color:blue;">
+        <ImageView fx:id="modifymedicineImageView" fitHeight="150" fitWidth="500"/>
+    </AnchorPane>
+    <Button fx:id="importImageButton" GridPane.rowIndex="3" GridPane.columnIndex="0" prefWidth="200" prefHeight="50" GridPane.halignment="CENTER"  text="Import Image">
+        <font>
+            <Font name="Times New Roman"/>
+        </font>
+    </Button>
+
+    <Button fx:id="addMedicineButton" GridPane.rowIndex="1"    GridPane.columnIndex="1" prefWidth="150" prefHeight="40"  GridPane.halignment="CENTER"  text="Add Medicine">
+        <font>
+            <Font name="Times New Roman"/>
+        </font>
+    </Button>
+    <Button fx:id="updateMedicineButton" GridPane.rowIndex="2" GridPane.columnIndex="1"  prefWidth="150" prefHeight="40" GridPane.halignment="CENTER"  text="Update Medicine">
+        <font>
+            <Font name="Times New Roman"/>
+        </font>
+    </Button>
+    <Button fx:id="clearMedicineButton" GridPane.rowIndex="3" onAction="#clearValues"  GridPane.columnIndex="1"  prefWidth="150" prefHeight="40" GridPane.halignment="CENTER"  text="Clear Medicine">
+        <font>
+            <Font name="Times New Roman"/>
+        </font>
+    </Button>
+    <Button fx:id="deleteMedicineButton" GridPane.rowIndex="4" GridPane.columnIndex="1"  prefWidth="150" prefHeight="40" GridPane.halignment="CENTER"  text="Delete Medicine">
+        <font>
+            <Font name="Times New Roman"/>
+        </font>
+    </Button>
+
+
+    <GridPane GridPane.columnIndex="1" GridPane.halignment="CENTER">
+    <rowConstraints>
+        <RowConstraints percentHeight="25"/>
+        <RowConstraints percentHeight="25"/>
+        <RowConstraints percentHeight="25"/>
+        <RowConstraints percentHeight="25"/>
+    </rowConstraints>
+    <columnConstraints>
+        <ColumnConstraints percentWidth="100"/>
+    </columnConstraints>
+
+</GridPane>
+
+</GridPane>

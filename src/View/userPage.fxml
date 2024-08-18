@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.skin.TableHeaderRow?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<BorderPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.userController">
+<center>
+    <GridPane fx:id="forUsersOnly" gridLinesVisible="true">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="20" />
+            <ColumnConstraints percentWidth="80" />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints percentHeight="100" />
+        </rowConstraints>
+
+        <GridPane fx:id="Part1" GridPane.columnIndex="0" vgap="10">
+            <padding>
+                <Insets bottom="20"/>
+            </padding>
+            <rowConstraints>
+                <RowConstraints percentHeight="32" />
+                <RowConstraints percentHeight="68" />
+            </rowConstraints>
+            <columnConstraints>
+                <ColumnConstraints percentWidth="100" />
+            </columnConstraints>
+
+            <GridPane fx:id="profilePicturePart" GridPane.rowIndex="0">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="100" />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints percentHeight="95" />
+                    <RowConstraints percentHeight="20" />
+                </rowConstraints>
+                <GridPane GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="0">
+                    <rowConstraints>
+                        <RowConstraints prefHeight="20"/>
+                    </rowConstraints>
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="100"/>
+                    </columnConstraints>
+                    <ImageView fitHeight="30"   fitWidth="30" onMouseClicked="#logout" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+                        <image>
+                            <Image url="@../Resources/logout.jpg" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="140" fx:id="femaleDefaultUserProfile" visible="false" fitWidth="200"  GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <image>
+                            <Image url="@../Resources/femaleuser.jpg" />
+                        </image>
+                    </ImageView>
+                    <ImageView fitHeight="140"  fx:id="maleDefaultUserProfile"  visible="false" fitWidth="200"  GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                        <image>
+                            <Image url="@../Resources/maleuser.jpg" />
+                        </image>
+                    </ImageView>
+
+                </GridPane>
+
+
+                <Button fx:id="ManageProfileButton" alignment="TOP_CENTER" onAction="#manageProfile" prefHeight="50" prefWidth="200" text="Manage Profile" textAlignment="CENTER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Times New Roman bold" size="20" />
+                    </font>
+                </Button>
+            </GridPane>
+
+            <ScrollPane fx:id="scrollbar" vbarPolicy="ALWAYS" GridPane.rowIndex="1">
+
+                <GridPane fx:id="manageProfile"  vgap="10" visible="false">
+                    <ImageView fx:id="closeManageProfile" fitHeight="30" fitWidth="30" onMouseClicked="#closeManageProfile"
+                               GridPane.halignment="RIGHT" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                        <image>
+                            <Image url="@../Resources/close.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fx:id="lockProfile"  fitHeight="30" fitWidth="30" onMousePressed="#lockProfile" visible="false" GridPane.halignment="LEFT" GridPane.rowIndex="0">
+                        <image>
+                            <Image url="@../Resources/lock.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fx:id="unlockProfile" fitHeight="30" fitWidth="30" onMousePressed="#lockProfile"  GridPane.halignment="LEFT" GridPane.rowIndex="0">
+                        <image>
+                            <Image url="@../Resources/unlock.png" />
+                        </image>
+                    </ImageView>
+                    <Label text="First Name" GridPane.rowIndex="2">
+                        <font>
+                            <Font name="Times New Roman bold" size="15" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="fName" disable="true" GridPane.rowIndex="3" />
+                    <Label text="Middle Name"  GridPane.rowIndex="4">
+                        <font>
+                            <Font name="Times New Roman bold" size="15" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="mName"  disable="true" GridPane.rowIndex="5" />
+                    <Label text="Last Name" GridPane.rowIndex="6">
+                        <font>
+                            <Font name="Times New Roman bold" size="15" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="lName" disable="true"  GridPane.rowIndex="7" />
+                    <Label text="Sex" GridPane.rowIndex="8">
+                        <font>
+                            <Font name="Times New Roman bold" size="15" />
+                        </font>
+                    </Label>
+                    <ComboBox fx:id="sex" disable="true"  GridPane.rowIndex="9">
+                        <items>
+                            <FXCollections fx:factory="observableArrayList">
+                                <String fx:value="Male" />
+                                <String fx:value="Female" />
+                            </FXCollections>
+                        </items>
+                    </ComboBox>
+                    <Label text="Date Of Birth" GridPane.rowIndex="10">
+                        <font>
+                            <Font name="Times New Roman bold" size="15" />
+                        </font>
+                    </Label>
+                    <DatePicker fx:id="dateofBirth" disable="true" GridPane.rowIndex="11" />
+                    <Label text="Phone Number" GridPane.rowIndex="12">
+                        <font>
+                            <Font name="Times New Roman bold" size="15" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="phoneNum" disable="true" GridPane.rowIndex="13" />
+                    <Label text="Address" GridPane.rowIndex="14">
+                        <font>
+                            <Font name="Times New Roman bold" size="15" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="address" disable="true" GridPane.rowIndex="15" />
+                    <Label text="Username" GridPane.rowIndex="16">
+                        <font>
+                            <Font name="Times New Roman bold" size="15" />
+                        </font>
+                    </Label>
+                    <TextField fx:id="manageusername" disable="true" GridPane.rowIndex="17" />
+                    <Label text="Password"  GridPane.rowIndex="18">
+                        <font>
+                            <Font name="Times New Roman bold" size="15" />
+                        </font>
+                    </Label>
+                    <PasswordField fx:id="managePassword" disable="true"  GridPane.rowIndex="19" />
+                    <TextField fx:id="managetextField" visible="false" GridPane.rowIndex="19" />
+                    <ImageView fx:id="manageeye" fitHeight="25.0" fitWidth="46.0" onMousePressed="#managePassword" visible="false" GridPane.halignment="RIGHT" GridPane.rowIndex="19">
+                        <image>
+                            <Image url="@../Resources/eye.png" />
+                        </image>
+                    </ImageView>
+                    <ImageView fx:id="manageeyeSlash" fitHeight="18.0"  disable="true"  fitWidth="46.0" onMousePressed="#managePassword" GridPane.halignment="RIGHT" GridPane.rowIndex="19">
+                        <image>
+                            <Image url="@../Resources/eyeSlash.png" />
+                        </image>
+                    </ImageView>
+
+
+                    <BorderPane GridPane.rowIndex="21">
+                        <bottom>
+                            <HBox spacing="10" GridPane.rowIndex="23">
+                                <Button fx:id="savechangesManageProfile" onAction="#savechanges"  disable="true" alignment="BOTTOM_RIGHT" text="Save">
+                                    <font>
+                                        <Font name="Times New Roman bold" size="15" />
+                                    </font>
+                                </Button>
+                                <Button alignment="BOTTOM_RIGHT" onMousePressed="#closeManageProfile" text="Cancel">
+                                    <font>
+                                        <Font name="Times New Roman bold" size="15" />
+                                    </font>
+                                </Button>
+                            </HBox>
+                        </bottom>
+
+                    </BorderPane>
+
+                    <padding>
+                        <Insets left="20" />
+                    </padding>
+                    <columnConstraints>
+                        <ColumnConstraints />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                        <RowConstraints />
+                    </rowConstraints>
+
+                </GridPane>
+
+            </ScrollPane>
+
+            <GridPane fx:id="searchbar" vgap="15" GridPane.halignment="CENTER" GridPane.rowIndex="1">
+                <padding>
+                    <Insets left="10" />
+                </padding>
+                <Label alignment="CENTER" text="Search Medicine By" GridPane.rowIndex="0">
+                    <font>
+                        <Font name="Times New Roman bold" size="15" />
+                    </font>
+                </Label>
+                <Label text="Medicine ID:" GridPane.rowIndex="1">
+                    <font>
+                        <Font name="Times New Roman bold" size="15" />
+                    </font>
+                </Label>
+                <TextField fx:id="medicineID" GridPane.rowIndex="2" />
+                <Label text="Medicine Brand:" GridPane.rowIndex="3">
+                    <font>
+                        <Font name="Times New Roman bold" size="15" />
+                    </font>
+                </Label>
+                <TextField fx:id="medicineBrand" GridPane.rowIndex="4" />
+                <Label text="Medicine Name:" GridPane.rowIndex="5">
+                    <font>
+                        <Font name="Times New Roman bold" size="15" />
+                    </font>
+                </Label>
+                <TextField fx:id="medicineName" GridPane.rowIndex="6" />
+                <Label text="Type:" GridPane.rowIndex="7">
+                    <font>
+                        <Font name="Times New Roman bold" size="15" />
+                    </font>
+                </Label>
+                <ComboBox fx:id="medicineType" editable="true" GridPane.rowIndex="8">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Antibiotics" />
+                            <String fx:value="Painkillers" />
+                            <String fx:value="Antipyretic" />
+                            <String fx:value="Anti-inflammatory" />
+                            <String fx:value="Antidepressant" />
+                            <String fx:value="Antihistamines(allergy)" />
+                            <String fx:value="Antiacids" />
+                            <String fx:value="Anticoagulants" />
+                            <String fx:value="Anti-viral" />
+                            <String fx:value="Antifungals" />
+                        </FXCollections>
+                    </items>
+                </ComboBox>
+                <Label text="Price:" GridPane.rowIndex="9">
+                    <font>
+                        <Font name="Times New Roman bold" size="15" />
+                    </font>
+                </Label>
+                <TextField fx:id="medicinePrice" GridPane.rowIndex="10" />
+              <HBox GridPane.rowIndex="12" GridPane.halignment="CENTER" spacing="5">
+                  <Button fx:id="buyMedicine" onAction="#buyMedicine" prefWidth="100" prefHeight="40" text="BUY" />
+                  <Button fx:id="searcheMedicine" onAction="#searchMedicine" prefWidth="100" prefHeight="40" text="SEARCH" />
+                  <Button fx:id="resetMedicinevaluesTable" onAction="#resetValues" prefWidth="100" prefHeight="40" text="RESET" />
+
+              </HBox>
+
+
+                <columnConstraints>
+                    <ColumnConstraints />
+                </columnConstraints>
+                <rowConstraints>
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                    <RowConstraints />
+                </rowConstraints>
+
+            </GridPane>
+
+
+        </GridPane>
+
+        <GridPane fx:id="part2" gridLinesVisible="true" GridPane.columnIndex="1" hgap="5">
+
+            <rowConstraints>
+                <RowConstraints percentHeight="10" />
+                <RowConstraints percentHeight="40" />
+                <RowConstraints percentHeight="10" />
+                <RowConstraints percentHeight="40" />
+            </rowConstraints>
+   <Label text="Medicines To Be Purchased" GridPane.halignment="CENTER" GridPane.rowIndex="0" >
+    <font>
+        <Font name="Times New Roman bold" size="20"/>
+    </font>
+</Label>
+   <Label text="Medicines Purchased"  GridPane.halignment="CENTER" GridPane.rowIndex="2">
+                <font>
+                    <Font name="Times New Roman bold" size="20"/>
+                </font>
+            </Label>
+
+<ScrollPane GridPane.rowIndex="1"  vbarPolicy="ALWAYS" hbarPolicy="ALWAYS">
+                <TableView fx:id="UsersMedicineTable" onMouseClicked="#getSelectedRowValue"  >
+
+                    <columns>
+                        <TableColumn prefWidth="130" text="Medicine ID">
+                            <cellValueFactory>
+                                <PropertyValueFactory property="medicineId"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="130" text="Medicine Name" >
+                            <cellValueFactory>
+                                <PropertyValueFactory property="medicineName"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="130" text="Medicine Brand" >
+                            <cellValueFactory>
+                                <PropertyValueFactory property="medicineBrand"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="130" text="Medicine Type" >
+                            <cellValueFactory>
+                                <PropertyValueFactory property="medicineType"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="130" text="Medicine Quantity" >
+                            <cellValueFactory>
+                                <PropertyValueFactory property="medicineQuantity"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="130" text="Medicine Price" >
+                            <cellValueFactory>
+                                <PropertyValueFactory property="medicinePrice"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="130" text="Medicine Expiry Date" >
+                            <cellValueFactory>
+                                <PropertyValueFactory property="medicineExpirydate"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                        <TableColumn prefWidth="350" text="Medicine Description" >
+                            <cellValueFactory>
+                                <PropertyValueFactory property="medicineDescription"/>
+                            </cellValueFactory>
+                        </TableColumn>
+                    </columns>
+
+                </TableView>
+            </ScrollPane>
+
+
+<ScrollPane hbarPolicy="ALWAYS" vbarPolicy="ALWAYS" GridPane.rowIndex="3">
+    <TableView fx:id="UsersSoldMedicineTable" onMouseClicked="#getSelectedRowValue"  >
+
+        <columns>
+            <TableColumn prefWidth="130" text="Medicine ID">
+                <cellValueFactory>
+                    <PropertyValueFactory property="medicineId"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="130" text="Medicine Name" >
+                <cellValueFactory>
+                    <PropertyValueFactory property="medicineName"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="130" text="Medicine Brand" >
+                <cellValueFactory>
+                    <PropertyValueFactory property="medicineBrand"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="130" text="Medicine Type" >
+                <cellValueFactory>
+                    <PropertyValueFactory property="medicineType"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="130" text="Medicine Quantity" >
+                <cellValueFactory>
+                    <PropertyValueFactory property="medicineQuantity"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="130" text="Medicine Price" >
+                <cellValueFactory>
+                    <PropertyValueFactory property="medicinePrice"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="130" text="Medicine Expiry Date" >
+                <cellValueFactory>
+                    <PropertyValueFactory property="medicineExpirydate"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn prefWidth="350" text="Medicine Description" >
+                <cellValueFactory>
+                    <PropertyValueFactory property="medicineDescription"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+
+    </TableView>
+
+</ScrollPane>
+
+
+
+        </GridPane>
+    </GridPane>
+</center>
+
+</BorderPane>

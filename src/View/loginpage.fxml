@@ -1,0 +1,327 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<BorderPane fx:id="pane" xmlns="http://javafx.com/javafx/20.0.1"
+            xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.loginpage">
+   <children>
+      <ImageView fx:id="loginBackground" fitHeight="400.0" fitWidth="600.0">
+         <image>
+            <Image url="@../Resources/page.jpg" />
+         </image>
+      </ImageView>
+   </children>
+   <center>
+      <GridPane fx:id="signupPage0" alignment="CENTER" disable="true" gridLinesVisible="false" vgap="30">
+         <columnConstraints>
+            <ColumnConstraints percentWidth="30" />
+            <ColumnConstraints percentWidth="40" />
+            <ColumnConstraints percentWidth="30" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints percentHeight="30.0" />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+
+         <Label alignment="CENTER" text="SIGNUP AS" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="0" GridPane.rowSpan="1">
+            <font>
+               <Font name="Times New Roman bold" size="40" />
+            </font>
+         </Label>
+         <Button fx:id="userPostionButton" prefHeight="30" prefWidth="120" text="Model.USER" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="1" onAction="#switchSignUpPage" />
+         <Button fx:id="pharmacistPostionButton"  prefHeight="30" prefWidth="120" text="PHARMACIST" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" onAction="#switchSignUpPage" />
+         <Button fx:id="administratorPostionButton" prefHeight="30" prefWidth="120" text="ADMINISTRATOR" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" onAction="#switchSignUpPage" />
+
+         <ImageView fitHeight="150" fitWidth="200" GridPane.columnIndex="0" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <image>
+               <Image url="@../Resources/user.png" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="150" fitWidth="200" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <image>
+               <Image url="@../Resources/pharmacist.png" />
+            </image>
+         </ImageView>
+         <ImageView fitHeight="150" fitWidth="200" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="2">
+            <image>
+               <Image url="@../Resources/administrator.png" />
+            </image>
+         </ImageView>
+         <Button fx:id="cancelSignupButton0" onAction="#switchSignUpPage" prefHeight="30" prefWidth="80" text="Cancel" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+
+      </GridPane>
+
+      <GridPane fx:id="verifyAuthorityPage" alignment="CENTER" disable="true" gridLinesVisible="false" vgap="30" hgap="10">
+         <columnConstraints>
+            <ColumnConstraints percentWidth="30"/>
+            <ColumnConstraints percentWidth="40"/>
+         </columnConstraints>
+
+         <Label text="Enter the Verification Code" GridPane.rowIndex="2" GridPane.columnIndex="1" GridPane.halignment="CENTER">
+            <font>
+               <Font name="Times New Roman bold" size="20" />
+            </font>
+         </Label>
+         <PasswordField fx:id="verifyAuthorityPasswordField" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Verify your Authority"/>
+         <TextField fx:id="verifyAuthorityTextField" visible="false" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Verify your Authority"/>
+
+         <ImageView fx:id="eyeverifyAuthorityPasswordField" onMouseClicked="#verifyAuthorityCode" fitHeight="25.0" fitWidth="46.0" onMousePressed="#loginPagePassword" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            <image>
+               <Image url="@../Resources/eye.png" />
+            </image>
+         </ImageView>
+         <ImageView fx:id="eyeSlashverifyAuthorityPasswordField" onMouseClicked="#verifyAuthorityCode"  fitHeight="18.0" fitWidth="46.0" onMousePressed="#loginPagePassword" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            <image>
+               <Image url="@../Resources/eyeSlash.png" />
+            </image>
+         </ImageView>
+
+
+         <Button fx:id="prevVerifyPageButton" onAction="#switchSignUpPage" prefHeight="30" prefWidth="80" text="Prev" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+         <Button fx:id="nextVerifyPageButton" onAction="#switchSignUpPage"  prefHeight="30" prefWidth="80" text="Next" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+         <Button fx:id="cancelVerifyPageButton" onAction="#switchSignUpPage" prefHeight="30" prefWidth="80" text="Cancel" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+      </GridPane>
+
+      <GridPane fx:id="pharmacyInfoPage" alignment="CENTER" disable="true" gridLinesVisible="false" vgap="30" hgap="10">
+         <columnConstraints>
+            <ColumnConstraints percentWidth="30"/>
+            <ColumnConstraints percentWidth="40"/>
+         </columnConstraints>
+
+         <Label text="Pharmacy Name" GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+            <font>
+               <Font name="Times New Roman bold" size="20" />
+            </font>
+         </Label>
+         <TextField fx:id="companyName" GridPane.rowIndex="2" GridPane.columnIndex="1" promptText="Enter the Pharmacy Name"/>
+         <Label text="Pharmacy Owner Name" GridPane.rowIndex="3" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+            <font>
+               <Font name="Times New Roman bold" size="20" />
+            </font>
+         </Label>
+         <TextField fx:id="ownerName" GridPane.rowIndex="4" GridPane.columnIndex="1" promptText="Enter the Owner Name"/>
+
+
+         <Button fx:id="prevPharmacyButton" onAction="#switchSignUpPage" prefHeight="30" prefWidth="80" text="Prev" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+         <Button fx:id="nextPharmacyButton" onAction="#switchSignUpPage"  prefHeight="30" prefWidth="80" text="Next" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+         <Button fx:id="cancelPharmacyButton" onAction="#switchSignUpPage" prefHeight="30" prefWidth="80" text="Cancel" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+      </GridPane>
+
+      <GridPane fx:id="signupPage1" alignment="CENTER" disable="true" gridLinesVisible="false" vgap="30" hgap="10">
+         <columnConstraints>
+            <ColumnConstraints percentWidth="30"/>
+            <ColumnConstraints percentWidth="40"/>
+         </columnConstraints>
+
+         <Label text="First Name" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.halignment="RIGHT">
+            <font>
+               <Font name="Times New Roman bold" size="20" />
+            </font>
+         </Label>
+         <TextField fx:id="firstNameTextField" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="Enter Your First Name"/>
+         <Label text="Middle Name" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.halignment="RIGHT">
+            <font>
+               <Font name="Times New Roman bold" size="20" />
+            </font>
+         </Label>
+         <TextField fx:id="middleNameTextField" GridPane.rowIndex="2" GridPane.columnIndex="1" promptText="Enter Your Middle Name"/>
+         <Label text="Last Name" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.halignment="RIGHT">
+            <font>
+               <Font name="Times New Roman bold" size="20" />
+            </font>
+         </Label>
+         <TextField fx:id="lastNameTextField" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Enter Your Last Name"/>
+
+        <Button fx:id="prevSignupButton1" onAction="#switchSignUpPage" prefHeight="30" prefWidth="80" text="Prev" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+        <Button fx:id="nextSignupButton1" onAction="#switchSignUpPage"  prefHeight="30" prefWidth="80" text="Next" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+        <Button fx:id="cancelSignupButton1" onAction="#switchSignUpPage" prefHeight="30" prefWidth="80" text="Cancel" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+
+      </GridPane>
+
+
+      <GridPane fx:id="signupPage2" alignment="CENTER" disable="true" gridLinesVisible="false" vgap="30" hgap="10">
+         <columnConstraints>
+            <ColumnConstraints percentWidth="30"/>
+            <ColumnConstraints percentWidth="40"/>
+         </columnConstraints>
+
+         <Label text="Sex" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.halignment="RIGHT">
+            <font>
+               <Font name="Times New Roman bold" size="20" />
+            </font>
+         </Label>
+         <ComboBox fx:id="sex" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="Gender">
+           <items>
+              <FXCollections fx:factory="observableArrayList">
+                 <String fx:value="Male"/>
+                 <String fx:value="Female"/>
+              </FXCollections>
+           </items>
+         </ComboBox>
+         <Label text="Date Of Birth" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.halignment="RIGHT">
+            <font>
+               <Font name="Times New Roman bold" size="20" />
+            </font>
+         </Label>
+         <DatePicker fx:id="dateOfBirth" GridPane.rowIndex="2" GridPane.columnIndex="1" promptText="Enter Your Birthdate"/>
+         <Label text="Phone Number" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.halignment="RIGHT">
+            <font>
+               <Font name="Times New Roman bold" size="20" />
+            </font>
+         </Label>
+         <TextField fx:id="phoneNumber" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Enter Your Phone Number"/>
+         <Label text="Adress" GridPane.rowIndex="4" GridPane.columnIndex="0" GridPane.halignment="RIGHT">
+            <font>
+               <Font name="Times New Roman bold" size="20" />
+            </font>
+         </Label>
+         <TextField fx:id="adress" GridPane.rowIndex="4" GridPane.columnIndex="1" promptText="Enter Your Phone Number"/>
+
+         <Button fx:id="prevSignupButton2" onAction="#switchSignUpPage" prefHeight="30" prefWidth="80" text="Prev" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+         <Button fx:id="nextSignupButton2" onAction="#switchSignUpPage"  prefHeight="30" prefWidth="80" text="Next" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+         <Button fx:id="cancelSignupButton2" onAction="#switchSignUpPage" prefHeight="30" prefWidth="80" text="Cancel" GridPane.columnIndex="8" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+      </GridPane>
+
+
+      <GridPane fx:id="signupPage3" alignment="CENTER" disable="true" gridLinesVisible="false" vgap="30" hgap="10">
+         <columnConstraints>
+            <ColumnConstraints percentWidth="30"/>
+            <ColumnConstraints percentWidth="40"/>
+         </columnConstraints>
+
+         <Label text="Username" GridPane.rowIndex="1" GridPane.columnIndex="0" GridPane.halignment="RIGHT">
+            <font>
+               <Font name="Times New Roman bold" size="20" />
+            </font>
+         </Label>
+         <TextField fx:id="usernameField" GridPane.rowIndex="1" GridPane.columnIndex="1" promptText="Enter Your Username"/>
+
+         <Label text="Password" GridPane.rowIndex="2" GridPane.columnIndex="0" GridPane.halignment="RIGHT">
+            <font>
+               <Font name="Times New Roman bold" size="20" />
+            </font>
+         </Label>
+         <PasswordField fx:id="signupPasswordField" GridPane.rowIndex="2" GridPane.columnIndex="1" promptText="Enter Your password"/>
+         <TextField fx:id="signupTextPasswordField" visible="false" GridPane.rowIndex="2" GridPane.columnIndex="1" promptText="Enter Your password"/>
+
+         <Label text="Confirm Password" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.halignment="RIGHT">
+            <font>
+               <Font name="Times New Roman bold" size="20" />
+            </font>
+         </Label>
+         <PasswordField fx:id="signupConfirmPasswordField" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Confirm your Password"/>
+         <TextField fx:id="signupTextConfirmPasswordField" visible="false" GridPane.rowIndex="3" GridPane.columnIndex="1" promptText="Confirm your Password"/>
+
+         <ImageView fx:id="eyesignupPasswordField" onMouseClicked="#signupPassword" fitHeight="25.0" fitWidth="46.0" onMousePressed="#loginPagePassword" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+            <image>
+               <Image url="@../Resources/eye.png" />
+            </image>
+         </ImageView>
+         <ImageView fx:id="eyeSlashsignupPasswordField" onMouseClicked="#signupPassword"  fitHeight="18.0" fitWidth="46.0" onMousePressed="#loginPagePassword" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+            <image>
+               <Image url="@../Resources/eyeSlash.png" />
+            </image>
+         </ImageView>
+
+         <ImageView fx:id="eyesignupConfirmPasswordField" onMouseClicked="#signupConfirmPassword" fitHeight="25.0" fitWidth="46.0" onMousePressed="#loginPagePassword" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            <image>
+               <Image url="@../Resources/eye.png" />
+            </image>
+         </ImageView>
+         <ImageView fx:id="eyeSlashsignupConfirmPasswordField" onMouseClicked="#signupConfirmPassword" fitHeight="18.0" fitWidth="46.0" onMousePressed="#loginPagePassword" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+            <image>
+               <Image url="@../Resources/eyeSlash.png" />
+            </image>
+         </ImageView>
+
+
+         <Button fx:id="prevSignupButton3" onAction="#switchSignUpPage" prefHeight="30" prefWidth="80" text="Prev" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+         <Button fx:id="nextSignupButton3" onAction="#switchSignUpPage"  prefHeight="30" prefWidth="80" text="Next" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+         <Button fx:id="cancelSignupButton3" onAction="#switchSignUpPage" prefHeight="30" prefWidth="80" text="Cancel" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="5" />
+      </GridPane>
+
+
+      <GridPane fx:id="signupPage4" alignment="CENTER" disable="true" gridLinesVisible="false" vgap="10" hgap="10">
+         <columnConstraints>
+            <ColumnConstraints percentWidth="20"/>
+            <ColumnConstraints percentWidth="25"/>
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints percentHeight="10"/>
+            <RowConstraints percentHeight="25"/>
+         </rowConstraints>
+
+     <HBox GridPane.rowIndex="1" GridPane.columnIndex="1" GridPane.rowSpan="5" GridPane.columnSpan="3" >
+            <CheckBox fx:id="checkInformationValidity"  prefHeight="80" prefWidth="100" GridPane.halignment="LEFT" alignment="TOP_LEFT"/>
+            <Label  wrapText="true" text="I here by confirm that every information I entered is  correct and if there were misled I will be accountable for any situation that will occur">
+               <font>
+                  <Font name="Times New Roman bold" size="20" />
+               </font>
+            </Label>
+
+         </HBox>
+
+         <Button fx:id="prevSignupButton4" onAction="#switchSignUpPage" prefHeight="30" prefWidth="80" text="Prev" GridPane.columnIndex="5" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+         <Button fx:id="nextSignupButton4" onAction="#switchSignUpPage"  prefHeight="30" prefWidth="80" text="Finish" GridPane.columnIndex="6" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+         <Button fx:id="cancelSignupButton4" onAction="#switchSignUpPage" prefHeight="30" prefWidth="80" text="Cancel" GridPane.columnIndex="7" GridPane.halignment="CENTER" GridPane.rowIndex="6" />
+      </GridPane>
+
+      <GridPane fx:id="firstLoginPage" alignment="CENTER" hgap="20" vgap="30">
+      <columnConstraints>
+         <ColumnConstraints percentWidth="30" />
+         <ColumnConstraints percentWidth="40" />
+         <ColumnConstraints percentWidth="20" />
+      </columnConstraints>
+      <Label text="Username" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0">
+         <font>
+            <Font name="Times New Roman bold" size="20" />
+         </font>
+      </Label>
+      <TextField fx:id="loginUsernameField" layoutX="212.0" layoutY="175.0" prefHeight="25.0" prefWidth="216.0" promptText="Enter Your Username" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+      <Label text="Password" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+         <font>
+            <Font name="Times New Roman bold" size="20" />
+         </font>
+      </Label>
+      <PasswordField fx:id="loginPasswordField" layoutX="212.0" layoutY="175.0" prefHeight="25.0" prefWidth="216.0" promptText="Enter Your Password" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="loginTextPasswordField" layoutX="212.0" layoutY="175.0" prefHeight="25.0" prefWidth="216.0" promptText="Enter Your Password" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Button fx:id="signinButton" onAction="#signinOperation" prefHeight="20" prefWidth="150" text="SIGN IN" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button fx:id="signupButton" onAction="#switchSignUpPage" prefHeight="20" prefWidth="150" text="SIGN UP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+         <ImageView fx:id="eyeLoginPagePasswordField" fitHeight="25.0" fitWidth="46.0" onMousePressed="#loginPagePassword" visible="false" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <image>
+               <Image url="@../Resources/eye.png" />
+            </image>
+         </ImageView>
+         <ImageView fx:id="eyeSlashLoginPagePasswordField" fitHeight="18.0" fitWidth="46.0" onMousePressed="#loginPagePassword" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <image>
+               <Image url="@../Resources/eyeSlash.png" />
+            </image>
+         </ImageView>
+         <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         </rowConstraints>
+      </GridPane>
+   </center>
+</BorderPane>

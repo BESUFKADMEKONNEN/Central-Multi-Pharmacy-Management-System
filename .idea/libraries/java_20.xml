@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="java.20">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/jdk-20/lib" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/jdk-20/lib" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/jdk-20/lib" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/jdk-20/lib" recursive="false" type="SOURCES" />
+  </library>
+</component>
