@@ -1,3 +1,10 @@
+
+ * Copyright (c) [Year] [Your Name]
+ * All rights reserved.
+ *
+ * This code is for personal use only. Unauthorized use, copying, or distribution is prohibited.
+
+
 # JavaFX Project Setup
 
 ## Introduction
